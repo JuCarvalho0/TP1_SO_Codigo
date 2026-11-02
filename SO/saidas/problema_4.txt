@@ -1,0 +1,34 @@
+Representante (rodada 1) poe na mesa os ingredientes que faltam ao fumante 2 (com fosforos)
+   Fumante 2 (fosforos) faz o cigarro e fuma
+Representante (rodada 2) poe na mesa os ingredientes que faltam ao fumante 1 (com papel)
+   Fumante 1 (papel) faz o cigarro e fuma
+Representante (rodada 3) poe na mesa os ingredientes que faltam ao fumante 0 (com tabaco)
+   Fumante 0 (tabaco) faz o cigarro e fuma
+Representante (rodada 4) poe na mesa os ingredientes que faltam ao fumante 1 (com papel)
+   Fumante 1 (papel) faz o cigarro e fuma
+Representante (rodada 5) poe na mesa os ingredientes que faltam ao fumante 0 (com tabaco)
+   Fumante 0 (tabaco) faz o cigarro e fuma
+Representante (rodada 6) poe na mesa os ingredientes que faltam ao fumante 0 (com tabaco)
+   Fumante 0 (tabaco) faz o cigarro e fuma
+Representante (rodada 7) poe na mesa os ingredientes que faltam ao fumante 0 (com tabaco)
+   Fumante 0 (tabaco) faz o cigarro e fuma
+Representante (rodada 8) poe na mesa os ingredientes que faltam ao fumante 1 (com papel)
+   Fumante 1 (papel) faz o cigarro e fuma
+Representante (rodada 9) poe na mesa os ingredientes que faltam ao fumante 1 (com papel)
+   Fumante 1 (papel) faz o cigarro e fuma
+Representante (rodada 10) poe na mesa os ingredientes que faltam ao fumante 0 (com tabaco)
+   Fumante 0 (tabaco) faz o cigarro e fuma
+Representante (rodada 11) poe na mesa os ingredientes que faltam ao fumante 0 (com tabaco)
+   Fumante 0 (tabaco) faz o cigarro e fuma
+Representante (rodada 12) poe na mesa os ingredientes que faltam ao fumante 0 (com tabaco)
+   Fumante 0 (tabaco) faz o cigarro e fuma
+Representante (rodada 13) poe na mesa os ingredientes que faltam ao fumante 2 (com fosforos)
+   Fumante 2 (fosforos) faz o cigarro e fuma
+Representante (rodada 14) poe na mesa os ingredientes que faltam ao fumante 2 (com fosforos)
+   Fumante 2 (fosforos) faz o cigarro e fuma
+Representante (rodada 15) poe na mesa os ingredientes que faltam ao fumante 2 (com fosforos)
+   Fumante 2 (fosforos) faz o cigarro e fuma
+---- Validacao ----
+Cigarros fumados: tabaco=7, papel=4, fosforos=4 (total 15 de 15 rodadas)
+Violacoes (fumante pegou ingredientes errados): 0
+RESULTADO: OK

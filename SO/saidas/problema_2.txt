@@ -1,0 +1,33 @@
+Barbeiro dorme (sem clientes)
+Cliente 6 entra (esperando: 1)
+Barbeiro cortando cabelo
+Cliente 4 entra (esperando: 1)
+Cliente 5 entra (esperando: 2)
+Cliente 3 entra (esperando: 3)
+Cliente 1 foi embora (cheio)
+Cliente 0 foi embora (cheio)
+Cliente 4 saiu cortado
+Barbeiro cortando cabelo
+Cliente 8 entra (esperando: 3)
+Cliente 10 foi embora (cheio)
+Cliente 11 foi embora (cheio)
+Cliente 7 foi embora (cheio)
+Cliente 6 saiu cortado
+Barbeiro cortando cabelo
+Cliente 2 entra (esperando: 3)
+Cliente 5 saiu cortado
+Barbeiro cortando cabelo
+Cliente 9 entra (esperando: 3)
+Cliente 3 saiu cortado
+Barbeiro cortando cabelo
+Cliente 8 saiu cortado
+Barbeiro cortando cabelo
+Cliente 2 saiu cortado
+Barbeiro cortando cabelo
+Cliente 9 saiu cortado
+Barbeiro dorme (sem clientes)
+---- Validacao ----
+Clientes: 12 | atendidos: 7 | desistiram: 5
+Cortes feitos pelo barbeiro: 7
+Violacoes (2 cortes ao mesmo tempo / fila invalida): 0
+RESULTADO: OK

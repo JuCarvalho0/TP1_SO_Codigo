@@ -1,0 +1,65 @@
+Filosofo 1 medita
+Filosofo 0 medita
+Filosofo 3 medita
+Filosofo 2 medita
+Filosofo 4 medita
+   Filosofo 1 COME (refeicao 1)
+   Filosofo 4 COME (refeicao 1)
+Filosofo 1 medita
+   Filosofo 0 COME (refeicao 1)
+   Filosofo 3 COME (refeicao 1)
+Filosofo 4 medita
+Filosofo 0 medita
+   Filosofo 2 COME (refeicao 1)
+Filosofo 3 medita
+   Filosofo 4 COME (refeicao 2)
+   Filosofo 1 COME (refeicao 2)
+Filosofo 2 medita
+   Filosofo 3 COME (refeicao 2)
+Filosofo 4 medita
+   Filosofo 0 COME (refeicao 2)
+Filosofo 1 medita
+   Filosofo 2 COME (refeicao 2)
+Filosofo 3 medita
+Filosofo 2 medita
+   Filosofo 4 COME (refeicao 3)
+   Filosofo 1 COME (refeicao 3)
+Filosofo 0 medita
+   Filosofo 3 COME (refeicao 3)
+Filosofo 4 medita
+   Filosofo 0 COME (refeicao 3)
+Filosofo 1 medita
+Filosofo 3 medita
+   Filosofo 2 COME (refeicao 3)
+Filosofo 2 medita
+   Filosofo 4 COME (refeicao 4)
+Filosofo 0 medita
+   Filosofo 1 COME (refeicao 4)
+Filosofo 1 medita
+Filosofo 4 medita
+   Filosofo 3 COME (refeicao 4)
+   Filosofo 0 COME (refeicao 4)
+Filosofo 0 medita
+   Filosofo 4 COME (refeicao 5)
+Filosofo 3 medita
+   Filosofo 2 COME (refeicao 4)
+Filosofo 4 medita
+   Filosofo 1 COME (refeicao 5)
+Filosofo 2 medita
+   Filosofo 3 COME (refeicao 5)
+   Filosofo 0 COME (refeicao 5)
+Filosofo 1 medita
+Filosofo 3 medita
+   Filosofo 2 COME (refeicao 5)
+   Filosofo 4 COME (refeicao 6)
+Filosofo 0 medita
+Filosofo 2 medita
+   Filosofo 3 COME (refeicao 6)
+   Filosofo 1 COME (refeicao 6)
+   Filosofo 0 COME (refeicao 6)
+   Filosofo 2 COME (refeicao 6)
+---- Validacao ----
+Refeicoes: f0=6 f1=6 f2=6 f3=6 f4=6 
+Violacoes (vizinhos comendo juntos): 0
+Terminou sem deadlock: true
+RESULTADO: OK

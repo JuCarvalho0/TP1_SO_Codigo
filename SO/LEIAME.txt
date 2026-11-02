@@ -1,0 +1,14 @@
+Trabalho Pratico 1 - Sistemas Operacionais (PUC Minas)
+Professor: Diego Silva Caldeira Rocha
+Integrantes:
+  Lucas Erick Andrade da Silva
+  Julia Carvalho
+  Joao Paulo de Freitas Fadul
+  Victhor Guilherme Santos Loiola
+  Bernardo Demaria Santos
+Estrutura:
+  src/ProdutorConsumidor   Parte I (exemplo do enunciado, sem alteracoes de logica)
+  src/trabalho             Parte II (7 problemas com threads e semaforos, Java)
+  saidas/                  Saida de cada programa e dos testes
+  relatorio/relatorio.pdf  Modelagem, deadlock, testes e roteiro dos videos
+Executar: sh compilar_e_executar.sh

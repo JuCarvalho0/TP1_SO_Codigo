@@ -1,0 +1,24 @@
+move() -> Bart
+move() -> Lisa
+move() -> Maggie
+move() -> Lisa
+move() -> Bart
+move() -> Lisa
+move() -> Maggie
+move() -> Lisa
+move() -> Bart
+move() -> Lisa
+move() -> Maggie
+move() -> Lisa
+move() -> Bart
+move() -> Lisa
+move() -> Maggie
+move() -> Lisa
+move() -> Bart
+move() -> Lisa
+move() -> Maggie
+move() -> Lisa
+---- Validacao ----
+Movimentos: 20 (esperado 20)
+Sequencia correta (Bart, Lisa, Maggie, Lisa, ...): true
+RESULTADO: OK

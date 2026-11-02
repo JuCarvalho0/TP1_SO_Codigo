@@ -1,0 +1,37 @@
+Selvagem 0 se serve (restam 4)
+Selvagem 1 se serve (restam 3)
+Selvagem 2 se serve (restam 2)
+Selvagem 3 se serve (restam 1)
+Selvagem 3 se serve (restam 0)
+Selvagem 0 ve o caldeirao vazio e acorda o cozinheiro
+Cozinheiro acorda e enche o caldeirao
+Selvagem 0 se serve (restam 4)
+Selvagem 2 se serve (restam 3)
+Selvagem 1 se serve (restam 2)
+Selvagem 2 se serve (restam 1)
+Selvagem 3 se serve (restam 0)
+Selvagem 0 ve o caldeirao vazio e acorda o cozinheiro
+Cozinheiro acorda e enche o caldeirao
+Selvagem 0 se serve (restam 4)
+Selvagem 2 se serve (restam 3)
+Selvagem 1 se serve (restam 2)
+Selvagem 3 se serve (restam 1)
+Selvagem 0 se serve (restam 0)
+Selvagem 3 ve o caldeirao vazio e acorda o cozinheiro
+Cozinheiro acorda e enche o caldeirao
+Selvagem 3 se serve (restam 4)
+Selvagem 2 se serve (restam 3)
+Selvagem 1 se serve (restam 2)
+Selvagem 0 se serve (restam 1)
+Selvagem 1 se serve (restam 0)
+Selvagem 3 ve o caldeirao vazio e acorda o cozinheiro
+Cozinheiro acorda e enche o caldeirao
+Selvagem 3 se serve (restam 4)
+Selvagem 0 se serve (restam 3)
+Selvagem 2 se serve (restam 2)
+Selvagem 1 se serve (restam 1)
+---- Validacao ----
+Porcoes servidas: 24 de 24
+Recargas: 4 (esperado 4)
+Violacoes (porcao negativa / encheu sem estar vazio): 0
+RESULTADO: OK

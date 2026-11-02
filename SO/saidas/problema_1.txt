@@ -1,0 +1,126 @@
+Produtor 0 colocou 0
+   Consumidor 1 retirou 2000
+Produtor 1 colocou 1000
+Produtor 2 colocou 2000
+   Consumidor 2 retirou 1000
+   Consumidor 0 retirou 0
+Produtor 1 colocou 1001
+   Consumidor 2 retirou 1001
+Produtor 0 colocou 1
+   Consumidor 1 retirou 1
+Produtor 2 colocou 2001
+   Consumidor 0 retirou 2001
+Produtor 1 colocou 1002
+Produtor 1 colocou 1003
+   Consumidor 1 retirou 1002
+Produtor 2 colocou 2002
+   Consumidor 1 retirou 1003
+   Consumidor 2 retirou 2002
+Produtor 0 colocou 2
+   Consumidor 1 retirou 2
+Produtor 1 colocou 1004
+   Consumidor 0 retirou 1004
+Produtor 1 colocou 1005
+   Consumidor 2 retirou 1005
+   Consumidor 1 retirou 2003
+Produtor 2 colocou 2003
+Produtor 0 colocou 3
+Produtor 1 colocou 1006
+   Consumidor 2 retirou 3
+Produtor 1 colocou 1007
+   Consumidor 2 retirou 1006
+   Consumidor 2 retirou 1007
+Produtor 2 colocou 2004
+   Consumidor 2 retirou 2004
+   Consumidor 0 retirou 4
+Produtor 0 colocou 4
+   Consumidor 2 retirou 1008
+Produtor 1 colocou 1008
+   Consumidor 1 retirou 2005
+Produtor 2 colocou 2005
+   Consumidor 2 retirou 5
+Produtor 0 colocou 5
+Produtor 1 colocou 1009
+Produtor 2 colocou 2006
+   Consumidor 0 retirou 1009
+   Consumidor 1 retirou 2006
+Produtor 0 colocou 6
+   Consumidor 2 retirou 6
+Produtor 2 colocou 2007
+   Consumidor 1 retirou 2007
+Produtor 1 colocou 1010
+Produtor 0 colocou 7
+   Consumidor 0 retirou 1010
+   Consumidor 1 retirou 7
+Produtor 2 colocou 2008
+   Consumidor 2 retirou 2008
+Produtor 1 colocou 1011
+   Consumidor 0 retirou 1011
+   Consumidor 2 retirou 8
+Produtor 1 colocou 1012
+   Consumidor 0 retirou 1012
+Produtor 0 colocou 8
+Produtor 2 colocou 2009
+   Consumidor 1 retirou 2009
+Produtor 2 colocou 2010
+Produtor 0 colocou 9
+Produtor 2 colocou 2011
+Produtor 0 colocou 10
+Produtor 1 colocou 1013
+   Consumidor 2 retirou 2010
+   Consumidor 0 retirou 9
+Produtor 1 colocou 1014
+   Consumidor 0 retirou 2011
+   Consumidor 1 retirou 10
+Produtor 1 colocou 1015
+Produtor 2 colocou 2012
+   Consumidor 1 retirou 1013
+   Consumidor 2 retirou 1014
+   Consumidor 0 retirou 1015
+Produtor 0 colocou 11
+Produtor 0 colocou 12
+   Consumidor 1 retirou 2012
+Produtor 2 colocou 2013
+   Consumidor 0 retirou 11
+Produtor 0 colocou 13
+   Consumidor 1 retirou 12
+   Consumidor 2 retirou 2013
+   Consumidor 1 retirou 13
+Produtor 1 colocou 1016
+   Consumidor 0 retirou 1016
+Produtor 2 colocou 2014
+   Consumidor 1 retirou 2014
+Produtor 0 colocou 14
+   Consumidor 1 retirou 14
+   Consumidor 0 retirou 1017
+Produtor 1 colocou 1017
+   Consumidor 2 retirou 15
+Produtor 0 colocou 15
+Produtor 2 colocou 2015
+   Consumidor 2 retirou 2015
+Produtor 1 colocou 1018
+   Consumidor 0 retirou 1018
+Produtor 2 colocou 2016
+   Consumidor 1 retirou 2016
+Produtor 2 colocou 2017
+Produtor 2 colocou 2018
+Produtor 0 colocou 16
+Produtor 0 colocou 17
+   Consumidor 2 retirou 2018
+   Consumidor 0 retirou 2017
+Produtor 1 colocou 1019
+   Consumidor 2 retirou 16
+   Consumidor 0 retirou 17
+Produtor 2 colocou 2019
+Produtor 0 colocou 18
+Produtor 0 colocou 19
+   Consumidor 1 retirou 1019
+   Consumidor 0 retirou 2019
+   Consumidor 0 retirou 18
+   Consumidor 0 retirou 19
+---- Validacao ----
+Itens produzidos: 60 | consumidos (distintos): 60
+Maximo de posicoes ocupadas: 5 (limite 5)
+Itens duplicados: false | violacao do buffer: false
+Terminou sem travar: true
+RESULTADO: OK

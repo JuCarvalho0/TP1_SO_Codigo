@@ -1,0 +1,194 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2.5cm]{geometry}
+\usepackage{fancyvrb}
+\usepackage{enumitem}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlist{itemsep=1pt,topsep=3pt}
+\renewcommand{\refname}{Referências}
+\begin{document}
+
+\begin{center}
+{\bfseries Pontifícia Universidade Católica de Minas Gerais}\\
+Instituto de Ciências Exatas e Informática (ICEI)\\
+Engenharia de Software\\
+Disciplina: Sistemas Operacionais\\
+Professor: Diego Silva Caldeira Rocha\\[12pt]
+{\Large\bfseries Trabalho Prático 1}\\
+{\large Comunicação e Sincronização de Processos e Threads}\\[12pt]
+\end{center}
+
+\textbf{Integrantes:}\\
+Lucas Erick Andrade da Silva\\
+Julia Carvalho\\
+João Paulo de Freitas Fadul\\
+Victhor Guilherme Santos Loiola\\
+Bernardo Demaria Santos
+
+\section*{1. Introdução}
+Neste trabalho nós estudamos como várias threads podem usar o mesmo recurso sem causar erro. Na Parte I, rodamos o
+exemplo do produtor e consumidor que o professor passou. Na Parte II, fizemos em Java os sete problemas do
+enunciado, usando threads e semáforos. Cada programa tem um teste que confere se tudo funcionou direito.
+
+Algumas palavras que aparecem no texto:
+\begin{itemize}
+  \item \textbf{Thread:} uma tarefa do programa que roda ao mesmo tempo que outras.
+  \item \textbf{Semáforo:} um contador que controla quem pode continuar. Se o valor é zero, a thread espera.
+  \item \textbf{Região crítica:} o pedaço do código que só uma thread pode executar por vez.
+  \item \textbf{Deadlock:} quando as threads ficam esperando umas pelas outras e o programa trava.
+\end{itemize}
+
+\section*{2. Parte I: Thread em Java}
+A classe \texttt{Buffer} guarda um valor só e uma variável \texttt{cheio}. O método \texttt{put} só grava quando
+o buffer está vazio, e o método \texttt{get} só lê quando ele está cheio. Os dois são \texttt{synchronized}, ou
+seja, só uma thread entra por vez. Quando não pode continuar, a thread chama \texttt{wait()} e fica esperando.
+Quem termina chama \texttt{notifyAll()} para acordar a outra.
+
+O \texttt{Produtor} coloca os valores de 0 a 4 e o \texttt{Consumidor} retira 5 valores. Como o buffer só guarda
+um valor, um novo \texttt{put} só acontece depois do \texttt{get} do valor anterior.
+
+Esta é a saída de uma execução. As linhas \texttt{put} e \texttt{get} são impressas dentro do buffer, e as linhas
+\texttt{Produtor} e \texttt{Consumidor} são impressas fora dele. Por isso a ordem entre elas pode mudar de uma
+execução para outra, mas os valores sempre saem em ordem (0, 1, 2, 3, 4) e nenhum se perde.
+\begin{small}
+\begin{Verbatim}[frame=single]
+put 0
+get 0
+Produtor #0 put: 0
+Consumidor #0 get: 0
+put 1
+Produtor #0 put: 1
+get 1
+Consumidor #0 get: 1
+put 2
+get 2
+Consumidor #0 get: 2
+Produtor #0 put: 2
+put 3
+get 3
+Consumidor #0 get: 3
+Produtor #0 put: 3
+put 4
+get 4
+Consumidor #0 get: 4
+Produtor #0 put: 4
+\end{Verbatim}
+\end{small}
+
+\section*{3. Parte II: Programas com semáforos}
+Os programas estão na pasta \texttt{src/trabalho}. Em cada problema abaixo dizemos quais são as threads, o que elas
+dividem, qual é a região crítica, quais semáforos usamos (com o valor inicial), como evitamos deadlock e como
+testamos. Se um programa travar, o teste acusa erro depois de um tempo, em vez de ficar parado para sempre.
+
+\subsection*{3.1 Produtor e consumidor}
+\textbf{Threads:} 3 produtores e 3 consumidores.\\
+\textbf{O que dividem:} um buffer de 5 posições.\\
+\textbf{Região crítica:} mexer no buffer e nas posições de entrada e saída.\\
+\textbf{Semáforos:} \texttt{vazios} (começa em 5, conta as posições livres), \texttt{cheios} (começa em 0, conta os
+itens guardados) e \texttt{mutex} (começa em 1, deixa só uma thread mexer no buffer).\\
+\textbf{Deadlock:} a thread sempre espera \texttt{vazios} ou \texttt{cheios} antes de pegar o \texttt{mutex}, e solta
+o \texttt{mutex} antes de avisar a outra. Assim ninguém dorme segurando o \texttt{mutex}.\\
+\textbf{Teste:} os 60 itens produzidos são consumidos uma vez só, o buffer nunca passa de 5 itens e termina vazio.
+
+\subsection*{3.2 Barbeiro dorminhoco}
+\textbf{Threads:} 1 barbeiro e 12 clientes. A barbearia tem 3 cadeiras de espera.\\
+\textbf{O que dividem:} a variável \texttt{waiting}, que conta os clientes esperando.\\
+\textbf{Região crítica:} ler e mudar o \texttt{waiting}.\\
+\textbf{Semáforos:} \texttt{customers} (0, conta os clientes esperando, e o barbeiro dorme nele), \texttt{barbers}
+(0, avisa que o barbeiro está livre), \texttt{mutex} (1, protege o \texttt{waiting}) e \texttt{done} (0, avisa
+que o corte terminou).\\
+\textbf{Deadlock:} o cliente solta o \texttt{mutex} antes de esperar o barbeiro, e o barbeiro solta o \texttt{mutex}
+antes de cortar. Se a barbearia está cheia, o cliente vai embora sem esperar em semáforo nenhum.\\
+\textbf{Teste:} os atendidos mais os que foram embora somam 12, o barbeiro nunca corta dois ao mesmo tempo e a fila
+nunca passa de 3.
+
+\subsection*{3.3 Leitores e escritores}
+\textbf{Threads:} 5 leitores e 2 escritores.\\
+\textbf{O que dividem:} o vetor \texttt{M}, com 4 números.\\
+\textbf{Região crítica:} escrever no vetor. Só um escritor por vez, e sem leitor junto. Já os leitores podem ler
+ao mesmo tempo, porque ler não muda nada.\\
+\textbf{Semáforos:} \texttt{mutex} (1, protege o contador de leitores), \texttt{db} (1, dá acesso exclusivo ao
+vetor) e \texttt{turno} (1, é justo e funciona como uma catraca, para os leitores não deixarem os escritores
+esperando para sempre).\\
+\textbf{Deadlock:} o primeiro leitor pega o \texttt{db} e o último solta. O \texttt{mutex} é solto logo depois de
+mexer no contador, e o \texttt{turno} é solto antes de ler ou escrever. Nenhum semáforo fica preso esperando outro.\\
+\textbf{Teste:} o escritor grava o mesmo número nas 4 posições, devagar de propósito. Se um leitor visse números
+diferentes, ou se um escritor rodasse junto com outra thread, o teste falharia.
+
+\subsection*{3.4 Fumantes}
+\textbf{Threads:} 1 representante e 3 fumantes (um com tabaco, um com papel e um com fósforos).\\
+\textbf{O que dividem:} a mesa.\\
+\textbf{Região crítica:} colocar e tirar os ingredientes da mesa.\\
+\textbf{Semáforos:} \texttt{agente} (1, só deixa o representante repor depois que o fumante terminou) e um
+semáforo para cada fumante, \texttt{fumante[i]} (0, o fumante fica parado até ser chamado).\\
+\textbf{Deadlock:} só um fumante é chamado por vez, e ele sempre devolve o \texttt{agente} no fim. Por isso uma thread
+nunca fica esperando outra que está esperando ela.\\
+\textbf{Teste:} em 15 rodadas, o fumante chamado sempre achou na mesa os dois ingredientes que ele não tem, e foram
+15 cigarros no total.
+
+\subsection*{3.5 Filósofos}
+\textbf{Threads:} 5 filósofos.\\
+\textbf{O que dividem:} 5 palitos.\\
+\textbf{Região crítica:} comer, que usa o palito da direita ($p_i$) e o da esquerda ($p_{i+1}$).\\
+\textbf{Semáforos:} \texttt{palito[i]} (1 para cada palito) e \texttt{sala} (4).\\
+\textbf{Deadlock:} se os 5 pegassem o palito da direita ao mesmo tempo, todos ficariam esperando o da esquerda e
+o programa travaria. O semáforo \texttt{sala} deixa só 4 filósofos tentarem pegar os palitos. Assim sempre sobra um
+palito livre e pelo menos um filósofo consegue comer.\\
+\textbf{Teste do deadlock:} tiramos a \texttt{sala} (valor 5) e fizemos o filósofo esperar um pouco depois do primeiro
+palito. O programa travou em 2 de 3 execuções. Com a \texttt{sala} em 4, todas terminaram.\\
+\textbf{Teste:} dois vizinhos nunca comem juntos e cada filósofo come 6 vezes.
+
+\subsection*{3.6 Jantar dos selvagens}
+\textbf{Threads:} 4 selvagens e 1 cozinheiro.\\
+\textbf{O que dividem:} o caldeirão, que tem 5 porções.\\
+\textbf{Região crítica:} se servir e encher o caldeirão.\\
+\textbf{Semáforos:} \texttt{mutex} (1, só um selvagem se serve por vez), \texttt{vazio} (0, acorda o cozinheiro) e
+\texttt{cheio} (0, o cozinheiro avisa que encheu).\\
+\textbf{Deadlock:} o selvagem que acha o caldeirão vazio acorda o cozinheiro e espera segurando o \texttt{mutex},
+de propósito, para ninguém se servir de um caldeirão vazio. Não trava porque o cozinheiro não precisa do
+\texttt{mutex} para encher.\\
+\textbf{Teste:} nunca sobra porção negativa, o cozinheiro só enche quando está vazio e, com 24 refeições e 5 porções,
+acontecem exatamente 4 recargas.
+
+\subsection*{3.7 Três robôs}
+\textbf{Threads:} Bart, Lisa e Maggie.\\
+\textbf{O que dividem:} a vez de se mexer (\texttt{move()}).\\
+\textbf{Semáforos:} \texttt{bart} (1, ele começa), \texttt{lisa} (0) e \texttt{maggie} (0). Só existe uma vez
+circulando, então só um robô anda por vez e ninguém fica esperando à toa.\\
+\textbf{Ordem:} Bart, Lisa, Maggie, Lisa, Bart, e assim por diante. A Lisa anda duas vezes por ciclo: no primeiro
+movimento ela libera a Maggie e no segundo ela libera o Bart.\\
+\textbf{Deadlock:} depois de se mexer, cada robô passa a vez para o próximo, então ninguém espera em círculo.\\
+\textbf{Teste:} em 5 ciclos, os 20 movimentos seguem exatamente a ordem Bart, Lisa, Maggie, Lisa.
+
+\section*{4. Testes}
+Rodamos cada programa 20 vezes seguidas, porque erros de sincronização às vezes só aparecem em algumas execuções.
+Todos passaram nas 20.
+\begin{small}
+\begin{Verbatim}[frame=single]
+Produtor/Consumidor          20/20 execucoes OK
+Barbeiro Dorminhoco          20/20 execucoes OK
+Leitores e Escritores        20/20 execucoes OK
+Fumantes                     20/20 execucoes OK
+Filosofos                    20/20 execucoes OK
+Selvagens                    20/20 execucoes OK
+Tres Robos                   20/20 execucoes OK
+TODOS OS TESTES PASSARAM
+\end{Verbatim}
+\end{small}
+A saída completa de cada programa está na pasta \texttt{saidas}.
+
+\section*{5. Como compilar e executar}
+\begin{Verbatim}[frame=single]
+javac -d out $(find src -name "*.java")
+java -cp out ProdutorConsumidor.ProdCons     # Parte I
+java -cp out trabalho.Main 1                 # problemas de 1 a 7
+java -cp out trabalho.Main todos             # resumo de todos
+java -cp out trabalho.TestesTodos            # 20 execucoes de cada
+\end{Verbatim}
+Números dos problemas: 1 produtor e consumidor, 2 barbeiro, 3 leitores e escritores, 4 fumantes, 5 filósofos,
+6 selvagens, 7 três robôs.
+
+\end{document}

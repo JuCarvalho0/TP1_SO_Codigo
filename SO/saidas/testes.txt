@@ -1,0 +1,8 @@
+Produtor/Consumidor          20/20 execucoes OK
+Barbeiro Dorminhoco          20/20 execucoes OK
+Leitores e Escritores        20/20 execucoes OK
+Fumantes                     20/20 execucoes OK
+Filosofos                    20/20 execucoes OK
+Selvagens                    20/20 execucoes OK
+Tres Robos                   20/20 execucoes OK
+TODOS OS TESTES PASSARAM
